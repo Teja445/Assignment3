@@ -14,7 +14,7 @@ export function getDatabaseConfig(): TypeOrmModuleOptions {
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
     entities: [User, Todo],
-    synchronize: process.env.NODE_ENV !== 'production',
+    synchronize: true, //process.env.NODE_ENV !== 'production',
     logging: true,
   };
-} 
+}

@@ -8,7 +8,7 @@ export const useTodosStore = defineStore('todos', () => {
 
   async function fetchTodos() {
     try {
-      const response = await fetch('http://localhost:3000/todos', {
+      const response = await fetch('/api/todos', {
         headers: {
           Authorization: `Bearer ${authStore.token}`,
         },
@@ -21,7 +21,7 @@ export const useTodosStore = defineStore('todos', () => {
 
   async function addTodo(title) {
     try {
-      const response = await fetch('http://localhost:3000/todos', {
+      const response = await fetch('/api/todos', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ export const useTodosStore = defineStore('todos', () => {
 
   async function toggleTodo(id, completed) {
     try {
-      const response = await fetch(`http://localhost:3000/todos/${id}`, {
+      const response = await fetch(`/api/todos/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export const useTodosStore = defineStore('todos', () => {
 
   async function deleteTodo(id) {
     try {
-      await fetch(`http://localhost:3000/todos/${id}`, {
+      await fetch(`/api/todos/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${authStore.token}`,
