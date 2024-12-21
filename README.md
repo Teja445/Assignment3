@@ -13,6 +13,7 @@ Deploy this application in a single EC2 machine, using `docker-compose`
 * Backend is to be run as node process in a docker
 * MySQL database required for backend is to be run under separate docker
 * Frontend is to be first "built" for production and then to be served as static files through nginx in seperate docker
+* DB configuration is to be provided to backend server through env variable
 
 Here is the indicative deployment architecture diagram:
 
@@ -37,8 +38,5 @@ graph TB
     nginx -->|/api/* requests| api
     api -->|DB queries| postgres
 ```
-
-* DB configuration is to be provided to backend server through env variable
-
 #### Optional Tasks
 * Access Logs from Nginx, Error logs of MySQL and console log of backend to be streamed to CloudWatch
